@@ -1,6 +1,28 @@
-pamalt is a project that integrates PaloAlto Network devices API into Maltego
+pamalt - PaloAlto Network appliances Maltego Transforms
 
 Author: David Bressler (bostonlink)
 twitter: @bostonlink
 
-Comming soon!
+ABOUT
+-----
+
+pamalt is a project that integrates the PAN web API to create Maltego transforms.  This functionality gives the ability to Information Security Teams and SOCs the ability to graph and create Machines (Maltego Radium) to view the threat landscape of an organization.  
+
+INSTALLATION
+_____________
+
+Coming Soon!
+
+SPECIAL THANKS!
+________________
+
+Rich Popson (@Rastafari0724)
+    - Drinking Partner, Stay Frosty!
+    - QA Tester
+    - Idea Contributor
+
+Paterva (@Paterva)
+    - For creating Maltego to begin with =)
+
+MassHackers (@MassHackers)
+    - Boston Hacking Community!! Join the list and come to a meeting!
