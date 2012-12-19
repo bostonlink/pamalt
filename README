@@ -4,13 +4,28 @@ Author: David Bressler (bostonlink)
 twitter: @bostonlink
 
 ABOUT
------
+______
 
 pamalt is a project that integrates the PAN web API to create Maltego transforms.  This functionality gives the ability to Information Security Teams and SOCs the ability to graph and create Machines (Maltego Radium) to view the threat landscape of an organization.  
 
 INSTALLATION
 _____________
 
+[Linux/OSX]
+____________
+
+pamalt depends on Python 2.7.3
+
+1. Clone the pamalt git repository
+2. Move the pamalt repository to the /opt directory
+3. chown the pamalt directory 'chown -R user:group pamalt' (optional)
+4. Import the imports/pamalt_config.mtz into Maltego
+5. You're ready to rock and roll =)
+
+[Windows]
+__________
+
+pamalt depends on Python 2.7.3
 Coming Soon!
 
 SPECIAL THANKS!
