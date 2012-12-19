@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # Copyright (C) 2012 nwmaltego Developer.
-# This file is part of nwmaltego - https://github.com/bostonlink/nwmaltego
+# This file is part of pamalt - https://github.com/bostonlink/nwmaltego
 # See the file 'LICENSE' for copying permission.
 
 # Skeleton transform
