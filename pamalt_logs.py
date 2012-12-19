@@ -1,8 +1,11 @@
 #!/usr/bin/env python
+# Copyright (C) 2012 pamalt Developer.
+# This file is part of nwmaltego - https://github.com/bostonlink/pamalt
+# See the file 'LICENSE' for copying permission.
 
 # PaloAlto Networks Log Query Maltego Transforms
 # Graphically visualize reports and logs from a PAN appliance
-# Author: David Bressler
+# Author: David Bressler (@bostonlink)
 
 import urllib, urllib2
 import sys,time

@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+# Copyright (C) 2012 pamalt Developer.
+# This file is part of nwmaltego - https://github.com/bostonlink/pamalt
+# See the file 'LICENSE' for copying permission.
+
 # Palo Alto top reports transform module
 # Author: David Bressler (@bostonlink)
 

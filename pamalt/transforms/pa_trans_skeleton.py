@@ -1,5 +1,10 @@
 #!/usr/bin/env python
+# Copyright (C) 2012 nwmaltego Developer.
+# This file is part of nwmaltego - https://github.com/bostonlink/nwmaltego
+# See the file 'LICENSE' for copying permission.
 
+# Skeleton transform
+# Author: David Bressler (bostonlink)
 import urllib, urllib2
 import time
 import xml.etree.ElementTree as ET
