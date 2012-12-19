@@ -1,0 +1,24 @@
+# List of Maltego pamalt Entities Created
+
+# Entity for Threats that are returned by pamalt transforms
+pamalt.paThreat
+
+# Report Entities - Used to graph pamalt reports
+
+# Top Attackers Report
+pamalt.topAttackers
+
+# Top Attacks Report
+pamalt.topAttacks
+
+# Top Spyware
+pamalt.topSpyware
+
+# Top Victims
+pamalt.topVictims
+
+# Top Viruses
+pamalt.topViruses
+
+# Top Vulnerabilities
+pamalt.topVulns
