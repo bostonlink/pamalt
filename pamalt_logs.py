@@ -8,7 +8,7 @@
 # Author: David Bressler (@bostonlink)
 
 import urllib, urllib2
-import sys,time
+import sys, os, time
 import xml.etree.ElementTree as ET
 from optparse import OptionParser
 import sys
