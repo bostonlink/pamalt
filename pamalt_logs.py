@@ -33,9 +33,14 @@ parser.add_option("-d", action="store", dest="tid", help="Threat to IP Destinati
 (options, args) = parser.parse_args()
 
 # Parse Configuration file
-f = open('pamalt/conf/pamalt.conf', 'r')
-conf = f.readlines()
-f.close()
+if os.name == 'posix':
+    f = open('pamalt/conf/pamalt.conf', 'r')
+    conf = f.readlines()
+    f.close()
+elif os.name == 'nt':
+    f = open('pamalt\\conf\\pamalt.conf', 'r')
+    conf = f.readlines()
+    f.close()
 
 key_active = False
 

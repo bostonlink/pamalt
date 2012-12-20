@@ -8,7 +8,7 @@
 # Author: David Bressler
 
 import urllib, urllib2
-import sys,time
+import sys, os, time
 import xml.etree.ElementTree as ET
 from optparse import OptionParser
 
@@ -35,9 +35,14 @@ parser.add_option("--top-vulnerabilities", action="store_true", dest="top_vulns"
 (options, args) = parser.parse_args()
 
 # Parse Configuration file
-f = open('pamalt/conf/pamalt.conf', 'r')
-conf = f.readlines()
-f.close()
+if os.name == 'posix':
+    f = open('pamalt/conf/pamalt.conf', 'r')
+    conf = f.readlines()
+    f.close()
+elif os.name == 'nt':
+    f = open('pamalt\\conf\\pamalt.conf', 'r')
+    conf = f.readlines()
+    f.close()
 
 key_active = False
 
