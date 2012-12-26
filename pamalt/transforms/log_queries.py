@@ -67,30 +67,29 @@ def ip_2_threat(pa_hostname, key, ip):
 
     # Maltego XML Output
     print "<MaltegoMessage>\n<MaltegoTransformResponseMessage>"
-    print "\t<Entities>"
+    print " <Entities>"
 
     for dic in log_list:
-	if dic['threatid'] in threat_list:
-	    continue
-	else:
+        if dic['threatid'] in threat_list:
+            continue
+        else:
 
-            print """           <Entity Type="pamalt.paThreat">
-	            <Value>%s</Value>
+            print """       <Entity Type="pamalt.paThreat">
+            <Value>%s</Value>
 	            <AdditionalFields>
-		        <Field Name="ipsrc" DisplayName="IP Source">%s</Field>
-		        <Field Name="ipdst" DisplayName="IP Destination">%s</Field>
-			<Field Name="tid" DisplayName="Threat ID">%s</Field>
-		    </AdditionalFields> 
-		</Entity>""" % (dic['threatid'], dic['src'], dic['dst'], dic['tid'])
+                    <Field Name="ipsrc" DisplayName="IP Source">%s</Field>
+                    <Field Name="ipdst" DisplayName="IP Destination">%s</Field>
+                    <Field Name="tid" DisplayName="Threat ID">%s</Field>
+                </AdditionalFields> 
+        </Entity>""" % (dic['threatid'], dic['src'], dic['dst'], dic['tid'])
 
-	threat_list.append(dic['threatid'])
-    print "\t</Entities>"
+        threat_list.append(dic['threatid'])
+    print " </Entities>"
     print "</MaltegoTransformResponseMessage>\n</MaltegoMessage>"
 
 def threat_2_ipsrc(pa_hostname, key, tid):
-    logtype = 'threat'
     query = '(threatid eq %s)' % (tid)
-    jobid = pamod.pa_log_query(pa_hostname, key, logtype, query)
+    jobid = pamod.pa_log_query(pa_hostname, key, 'threat', query)
     time.sleep(5)
     result = pamod.pa_log_get(pa_hostname, key, jobid)
 
@@ -141,14 +140,14 @@ def threat_2_ipsrc(pa_hostname, key, tid):
 
     # Maltego XML Output
     print "<MaltegoMessage>\n<MaltegoTransformResponseMessage>"
-    print "\t<Entities>"
+    print " <Entities>"
 
     for dic in log_list:
         if dic['src'] in ip_list:
             continue
         else:
 
-            print """           <Entity Type="maltego.IPv4Address">
+            print """       <Entity Type="maltego.IPv4Address">
                     <Value>%s</Value>
                     <AdditionalFields>
                         <Field Name="ipdst" DisplayName="IP Destination">%s</Field>
@@ -157,7 +156,7 @@ def threat_2_ipsrc(pa_hostname, key, tid):
                 </Entity>""" % (dic['src'], dic['dst'], dic['tid'])
 
         ip_list.append(dic['src'])
-    print "\t</Entities>"
+    print " </Entities>"
     print "</MaltegoTransformResponseMessage>\n</MaltegoMessage>"
 
 def threat_2_ipdst(pa_hostname, key, tid):
@@ -212,14 +211,14 @@ def threat_2_ipdst(pa_hostname, key, tid):
 
     # Maltego XML Output
     print "<MaltegoMessage>\n<MaltegoTransformResponseMessage>"
-    print "\t<Entities>"
+    print " <Entities>"
 
     for dic in log_list:
         if dic['dst'] in ip_list:
             continue
         else:
 
-            print """           <Entity Type="maltego.IPv4Address">
+            print """       <Entity Type="maltego.IPv4Address">
                     <Value>%s</Value>
                     <AdditionalFields>
                         <Field Name="ipdst" DisplayName="IP Source">%s</Field>
@@ -228,5 +227,5 @@ def threat_2_ipdst(pa_hostname, key, tid):
                 </Entity>""" % (dic['dst'], dic['src'], dic['tid'])
 
         ip_list.append(dic['dst'])
-    print "\t</Entities>"
+    print " </Entities>"
     print "</MaltegoTransformResponseMessage>\n</MaltegoMessage>"

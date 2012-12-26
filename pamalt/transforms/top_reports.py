@@ -230,5 +230,3 @@ def pre_top_vulns(pa_hostname, key):
 
     print "\t</Entities>"
     print "</MaltegoTransformResponseMessage>\n</MaltegoMessage>"
-
-

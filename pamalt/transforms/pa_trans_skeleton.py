@@ -15,5 +15,3 @@ def test_mod():
     pa_hostname = 'isdpan1295'
     key = pamod.pa_auth('papi_user', 'p@ssw0rd', pa_hostname)
     print key
-
-
