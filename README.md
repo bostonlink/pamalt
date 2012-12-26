@@ -39,12 +39,12 @@ Have to implement better XML parsing and writing
 ## SPECIAL THANKS!
 
 Rich Popson (@Rastafari0728)
-    * Drinking Partner, Stay Frosty!
-    * QA Tester
-    * Idea Contributor
+* Drinking Partner, Stay Frosty!
+* QA Tester
+* Idea Contributor
 
 Paterva (@Paterva)
-    * For creating Maltego to begin with =)
+* For creating Maltego to begin with =)
 
 MassHackers (@MassHackers)
-    * Boston Hacking Community!! Join the list and come to a meeting!
+* Boston Hacking Community!! Join the list and come to a meeting!
