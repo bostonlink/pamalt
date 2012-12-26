@@ -48,7 +48,7 @@ def pa_dyn_report(pa_hostname, key, reportname, period=''):
 def pa_pred_report(pa_hostname, key, reportname):
 
     base_url = 'https://%s/api/?' % pa_hostname
-    params_dic = {'type': 'report', 'reporttype', 'predefined', 'reportname': reportname, 'key': key}
+    params_dic = {'type': 'report', 'reporttype': 'predefined', 'reportname': reportname, 'key': key}
 
     enc_params = urllib.urlencode(params_dic)
     full_url = base_url + enc_params
