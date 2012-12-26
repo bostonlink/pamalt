@@ -29,8 +29,7 @@ def pre_top_attackers(pa_hostname, key):
 	    entry_dic = {}
 
 	    for data in entry:
-            
-		entry_dic[data.tag] = data.text
+            entry_dic[data.tag] = data.text
 
 	    entry_list.append(entry_dic)
 
@@ -67,7 +66,6 @@ def pre_top_attacks(pa_hostname, key):
             entry_dic = {}
 
             for data in entry:
-
                 entry_dic[data.tag] = data.text
 
             entry_list.append(entry_dic)
@@ -103,7 +101,6 @@ def pre_top_spyware(pa_hostname, key):
             entry_dic = {}
 
             for data in entry:
-
                 entry_dic[data.tag] = data.text
 
             entry_list.append(entry_dic)
@@ -138,7 +135,6 @@ def pre_top_vics(pa_hostname, key):
             entry_dic = {}
 
             for data in entry:
-
                 entry_dic[data.tag] = data.text
 
             entry_list.append(entry_dic)
@@ -174,7 +170,6 @@ def pre_top_viruses(pa_hostname, key):
             entry_dic = {}
 
             for data in entry:
-
                 entry_dic[data.tag] = data.text
 
             entry_list.append(entry_dic)
@@ -209,7 +204,6 @@ def pre_top_vulns(pa_hostname, key):
             entry_dic = {}
 
             for data in entry:
-
                 entry_dic[data.tag] = data.text
 
             entry_list.append(entry_dic)
