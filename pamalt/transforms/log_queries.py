@@ -30,25 +30,19 @@ def ip_2_threat(pa_hostname, key, ip):
                     break
 
     # parse the log data and create dictionaries stored in a list for each individual log
-    for response in root:
-        for result in response:
-            if result.tag == 'log':
-                for log in result:
-                    logs = log
     log_list = []
-    for entry in logs:
+    for entry in root.findall(".//log/logs/entry"):
         entry_dic = {}
         for data in entry:
             entry_dic[data.tag] = data.text
-    
-	log_list.append(entry_dic)
-    
-    threat_list = []
 
+        log_list.append(entry_dic)
+    
     # Maltego XML Output
     print "<MaltegoMessage>\n<MaltegoTransformResponseMessage>"
     print " <Entities>"
 
+    threat_list = []
     for dic in log_list:
         if dic['threatid'] in threat_list:
             continue
@@ -83,25 +77,19 @@ def threat_2_ipsrc(pa_hostname, key, tid):
                     break
 
     # parse the log data and create dictionaries stored in a list for each individual log
-    for response in root:
-        for result in response:
-            if result.tag == 'log':
-                for log in result:
-                    logs = log
     log_list = []
-    for entry in logs:
+    for entry in root.findall(".//log/logs/entry"):
         entry_dic = {}
         for data in entry:
             entry_dic[data.tag] = data.text
 
         log_list.append(entry_dic)
-
-    ip_list = []
-
+    
     # Maltego XML Output
     print "<MaltegoMessage>\n<MaltegoTransformResponseMessage>"
     print " <Entities>"
-
+    
+    ip_list = []
     for dic in log_list:
         if dic['src'] in ip_list:
             continue
@@ -135,25 +123,19 @@ def threat_2_ipdst(pa_hostname, key, tid):
                     break
 
     # parse the log data and create dictionaries stored in a list for each individual log
-    for response in root:
-        for result in response:
-            if result.tag == 'log':
-                for log in result:
-                    logs = log
     log_list = []
-    for entry in logs:
+    for entry in root.findall(".//log/logs/entry"):
         entry_dic = {}
         for data in entry:
             entry_dic[data.tag] = data.text
 
         log_list.append(entry_dic)
 
-    ip_list = []
-
     # Maltego XML Output
     print "<MaltegoMessage>\n<MaltegoTransformResponseMessage>"
     print " <Entities>"
-
+    
+    ip_list = []
     for dic in log_list:
         if dic['dst'] in ip_list:
             continue
