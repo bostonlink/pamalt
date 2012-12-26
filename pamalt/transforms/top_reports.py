@@ -25,13 +25,12 @@ def pre_top_attackers(pa_hostname, key):
     root = ET.fromstring(topattackers)
 
     for result in root:
-	for entry in result:
-	    entry_dic = {}
+        for entry in result:
+            entry_dic = {}
+            for data in entry:
+                entry_dic[data.tag] = data.text
 
-	    for data in entry:
-            entry_dic[data.tag] = data.text
-
-	    entry_list.append(entry_dic)
+            entry_list.append(entry_dic)
 
     # Maltego XML Output
     print "<MaltegoMessage>\n<MaltegoTransformResponseMessage>"
