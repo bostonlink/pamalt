@@ -18,36 +18,16 @@ def ip_2_threat(pa_hostname, key, ip):
     query = '(addr.dst in %s) or (addr.src in %s)' % (ip, ip)
     jobid = pamod.pa_log_query(pa_hostname, key, 'threat', query)
     time.sleep(5)
-    result = pamod.pa_log_get(pa_hostname, key, jobid)
- 
-    root = ET.fromstring(result)
-    # Parse the job status from the intitial pull of the job
-    for result in root:
-        for job in result:
-
-            if job.tag == 'job':
-                job_dic = {}
-                for data in job:
-                    job_dic[data.tag] = data.text
-
-    # Check the status of the job until it is finished
-    while job_dic['status'] == 'ACT':
-        time.sleep(10)
-        response = pamod.pa_log_get(pa_hostname, key, jobid)
-	root = ET.fromstring(response)
-
-	for result in root:
-	    for job in result:
-
-		if job.tag == 'job':
-		    job_dic = {}
-		    for data in job:
-			job_dic[data.tag] = data.text
-	continue
-
-	if job_dic['status'] == 'FIN':
-	    root = ET.fromstring(results)
-	    break
+     
+    # Loop function to check if the log query job is done
+    root = ET.fromstring(pamod.pa_log_get(pa_hostname, key, jobid))
+    for status in root.findall(".//job/status"):
+        while status.text == 'ACT':
+            time.sleep(5)
+            root = ET.fromstring(pamod.pa_log_get(pa_hostname, key, jobid))
+            for status in root.findall(".//job/status"):
+                if status.text == 'FIN':
+                    break
 
     # parse the log data and create dictionaries stored in a list for each individual log
     for response in root:
@@ -91,36 +71,16 @@ def threat_2_ipsrc(pa_hostname, key, tid):
     query = '(threatid eq %s)' % (tid)
     jobid = pamod.pa_log_query(pa_hostname, key, 'threat', query)
     time.sleep(5)
-    result = pamod.pa_log_get(pa_hostname, key, jobid)
-
-    root = ET.fromstring(result)
-    # Parse the job status from the intitial pull of the job
-    for result in root:
-        for job in result:
-
-            if job.tag == 'job':
-                job_dic = {}
-                for data in job:
-                    job_dic[data.tag] = data.text
-
-    # Check the status of the job until it is finished
-    while job_dic['status'] == 'ACT':
-        time.sleep(10)
-        response = pamod.pa_log_get(pa_hostname, key, jobid)
-        root = ET.fromstring(response)
-
-        for result in root:
-            for job in result:
-
-                if job.tag == 'job':
-                    job_dic = {}
-                    for data in job:
-                        job_dic[data.tag] = data.text
-        continue
-
-        if job_dic['status'] == 'FIN':
-            root = ET.fromstring(results)
-            break
+    
+    # Loop function to check if the log query job is done
+    root = ET.fromstring(pamod.pa_log_get(pa_hostname, key, jobid))
+    for status in root.findall(".//job/status"):
+        while status.text == 'ACT':
+            time.sleep(5)
+            root = ET.fromstring(pamod.pa_log_get(pa_hostname, key, jobid))
+            for status in root.findall(".//job/status"):
+                if status.text == 'FIN':
+                    break
 
     # parse the log data and create dictionaries stored in a list for each individual log
     for response in root:
@@ -163,35 +123,16 @@ def threat_2_ipdst(pa_hostname, key, tid):
     query = '(threatid eq %s)' % (tid)
     jobid = pamod.pa_log_query(pa_hostname, key, 'threat', query)
     time.sleep(5)
-    result = pamod.pa_log_get(pa_hostname, key, jobid)
-
-    root = ET.fromstring(result)
-    # Parse the job status from the intitial pull of the job
-    for result in root:
-        for job in result:
-
-            if job.tag == 'job':
-                job_dic = {}
-                for data in job:
-                    job_dic[data.tag] = data.text
-
-    # Check the status of the job until it is finished
-    while job_dic['status'] == 'ACT':
-        time.sleep(10)
-        response = pamod.pa_log_get(pa_hostname, key, jobid)
-        root = ET.fromstring(response)
-
-        for result in root:
-            for job in result:
-                if job.tag == 'job':
-                    job_dic = {}
-                    for data in job:
-                        job_dic[data.tag] = data.text
-        continue
-
-        if job_dic['status'] == 'FIN':
-            root = ET.fromstring(results)
-            break
+    
+    # Loop function to check if the log query job is done
+    root = ET.fromstring(pamod.pa_log_get(pa_hostname, key, jobid))
+    for status in root.findall(".//job/status"):
+        while status.text == 'ACT':
+            time.sleep(5)
+            root = ET.fromstring(pamod.pa_log_get(pa_hostname, key, jobid))
+            for status in root.findall(".//job/status"):
+                if status.text == 'FIN':
+                    break
 
     # parse the log data and create dictionaries stored in a list for each individual log
     for response in root:
