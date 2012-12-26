@@ -48,19 +48,19 @@ key_active = False
 
 for line in conf:
     if 'KEY:' in line:
-	line_list = line.strip().split(':')
-	key = line_list[1]
-	key_active = True
+        line_list = line.strip().split(':')
+        key = line_list[1]
+        key_active = True
     else:
-	if 'PA_USER=' in line:
-	    line_list = line.strip().split('=')
-	    pa_user = line_list[1]
-	elif 'PA_PASS=' in line:
-	    line_list = line.strip().split('=')
-	    pa_pass = line_list[1]
-	elif 'HOSTNAME=' in line:
-	    line_list = line.strip().split('=')
-	    hostname = line_list[1]
+        if 'PA_USER=' in line:
+            line_list = line.strip().split('=')
+            pa_user = line_list[1]
+        elif 'PA_PASS=' in line:
+            line_list = line.strip().split('=')
+            pa_pass = line_list[1]
+        elif 'HOSTNAME=' in line:
+            line_list = line.strip().split('=')
+            hostname = line_list[1]
 	
 if key_active != True:
     key = pamod.pa_auth(pa_user, pa_pass, hostname)
@@ -89,4 +89,3 @@ elif options.top_viruses:
 
 elif options.top_vulns:
     pamalt.transforms.top_reports.pre_top_vulns(hostname, key)
-

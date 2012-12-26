@@ -15,9 +15,8 @@ from pamalt.lib import pamod
 # Threat Log queries
 
 def ip_2_threat(pa_hostname, key, ip):
-    logtype = 'threat'
     query = '(addr.dst in %s) or (addr.src in %s)' % (ip, ip)
-    jobid = pamod.pa_log_query(pa_hostname, key, logtype, query)
+    jobid = pamod.pa_log_query(pa_hostname, key, 'threat', query)
     time.sleep(5)
     result = pamod.pa_log_get(pa_hostname, key, jobid)
  
@@ -52,15 +51,15 @@ def ip_2_threat(pa_hostname, key, ip):
 
     # parse the log data and create dictionaries stored in a list for each individual log
     for response in root:
-	for result in response:
-	    if result.tag == 'log':
-		for log in result:
-		    logs = log
+        for result in response:
+            if result.tag == 'log':
+                for log in result:
+                    logs = log
     log_list = []
     for entry in logs:
-	entry_dic = {}
-	for data in entry:
-	    entry_dic[data.tag] = data.text
+        entry_dic = {}
+        for data in entry:
+            entry_dic[data.tag] = data.text
     
 	log_list.append(entry_dic)
     
@@ -162,9 +161,8 @@ def threat_2_ipsrc(pa_hostname, key, tid):
     print "</MaltegoTransformResponseMessage>\n</MaltegoMessage>"
 
 def threat_2_ipdst(pa_hostname, key, tid):
-    logtype = 'threat'
     query = '(threatid eq %s)' % (tid)
-    jobid = pamod.pa_log_query(pa_hostname, key, logtype, query)
+    jobid = pamod.pa_log_query(pa_hostname, key, 'threat', query)
     time.sleep(5)
     result = pamod.pa_log_get(pa_hostname, key, jobid)
 
@@ -186,7 +184,6 @@ def threat_2_ipdst(pa_hostname, key, tid):
 
         for result in root:
             for job in result:
-
                 if job.tag == 'job':
                     job_dic = {}
                     for data in job:
