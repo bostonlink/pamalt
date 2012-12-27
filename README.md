@@ -32,10 +32,6 @@ pamalt depends on Python 2.7.3
 5. Edit the C:\pamalt\pamalt\conf\pamalt.conf file with the proper credentials
 6. Should be ready to rock and roll, test,test,test!
 
-## 3.0 - ISSUES
-
-Have to implement better XML parsing and writing
-
 ## SPECIAL THANKS!
 
 Rich Popson (@Rastafari0728)
